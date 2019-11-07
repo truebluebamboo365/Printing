@@ -59,8 +59,6 @@ namespace Printer
             {
                 Console.WriteLine(s + ": " + sl[s]);
             }
-
-
         }
     }
 }
