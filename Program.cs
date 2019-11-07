@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 
 namespace Printer
 {
@@ -44,9 +44,12 @@ namespace Printer
                 string sortedTemp = "";
                 for (int m = 0; m < 4; m++)
                 {
-                    temp += newArray[n, m].ToString("d4") + " ";
+                    if (m < 3)
+                        temp += newArray[n, m].ToString("d4") + ",";
+                    else
+                        temp += newArray[n, m].ToString("d4");
                     if (m == 0)
-                        sortedTemp = newArray[n, m].ToString("d4") + " ";
+                        sortedTemp = newArray[n, m].ToString("d4") + "";
                 }
                 sl.Add(sortedTemp, temp);
 
@@ -57,7 +60,15 @@ namespace Printer
             ICollection key = sl.Keys;
             foreach (string s in key)
             {
-                Console.WriteLine(s + ": " + sl[s]);
+                //Console.WriteLine(s + ": " + sl[s]);
+
+                string myStr = sl[s].ToString();
+                List<int> TagIds = myStr.Split(',').Select(int.Parse).ToList();
+                
+                foreach (int ch in TagIds)
+                {
+                    Console.WriteLine(ch.ToString("d4"));
+                }
             }
         }
     }
