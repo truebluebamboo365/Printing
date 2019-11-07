@@ -36,6 +36,7 @@ namespace Printer
                 }
             }
 
+            //Sorted list is cool
             SortedList sl = new SortedList();
             for (int n = 0; n < newIndex; n++)
             {
