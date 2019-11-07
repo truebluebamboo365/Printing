@@ -37,7 +37,6 @@ namespace Printer
             }
 
             SortedList sl = new SortedList();
-
             for (int n = 0; n < newIndex; n++)
             {
                 string temp = "";
